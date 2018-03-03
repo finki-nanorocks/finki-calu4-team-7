@@ -1,0 +1,66 @@
+﻿@model IEnumerable<calu4_t7.ViewModel.SchoolViewModel>
+@{
+    ViewBag.Title = "SchoolTest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="school-title" class="mt-5 pb-4" style="padding-top: 70px; margin-bottom: -20px">
+   
+    <div class="container text-center">
+        <p class="text-center h1 text-dark">Schools</p>
+        <hr style="width: 40%;" />
+        @*<div class="row">
+            <div class="col-lg-4 offset-lg-4 col-md-8 offset-md-2 col-sm-12">
+                <h6>Select Municipality:</h6>
+                <form method="" action="">
+                    <div class="form-group">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Municipality
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Kisela Voda</a>
+                                <a class="dropdown-item" href="#">Karpos</a>
+                                <a class="dropdown-item" href="#">Aerodrom</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>*@
+
+    </div>
+</section>
+
+<section id="school-content" class="container" style="padding-bottom: 50px; ">
+    <div class="row">
+        @foreach (var school in Model)
+        {
+            <div class="col-lg-3 col-md-6 pt-4 pb-2">
+                <a href="/Schools/Test?id=@school.School.Id" style="text-decoration: none;" class="text-dark">
+                    <div class="card">
+                        <!--Card image-->
+                        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+
+                        <!--Card content-->
+                        <div class="card-body">
+                            <!--Text-->
+                            <ul class="list-unstyled" style="margin-bottom: -5px">
+                                <li class="text-truncate">Name: <strong>@school.School.Name</strong></li>
+                                <li class="text-truncate">Municipality: <strong>@school.School.Municiplaity</strong></li>
+                                @*<li class="text-truncate">Address: <strong>@school.School.Address</strong></li>*@
+                            </ul>
+                        </div>
+                        <div class="card-footer text-center">
+                            <strong><span style="font-size: 20px;">Points: @school.Points</span></strong>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        }
+
+    </div>
+
+</section>
+

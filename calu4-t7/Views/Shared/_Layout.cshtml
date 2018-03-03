@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</head>
+<body>
+    <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-2 fixed-top" style="border-bottom: solid 2px #ddd;">
+            <a class="navbar-brand hovering" href="#">
+                <img src="../../imgs/logos/logo_transparent2.png" alt="" class="img-fluid" style="width:200px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link h5" href="#">Schools <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h5" href="#">Singup <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h5" href="#">Singin <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h5" href="#">Singup <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+    </header>
+
+
+
+    <!--
+    <div class="navbar navbar-inverse navbar-fixed-top">
+
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    -->
+    @RenderBody()
+
+    <footer id="footer">
+        <div class="container-fluid bg-success p-5">
+            <div class="row">
+
+                <hr style="border: solid 1px #1d2124; width: 100%;" />
+
+                <div class="col-sm-12 mt-4 pt-2">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-4 d-flex d-sm-none d-lg-block">
+                            <span class="h4 text-light text-center">About as</span>
+                            <p class="text-light p-2">
+                                GrowGreen is a non-government organization which aims to provide a cleaner environment by including the youngest minds in society. We strive to teach them to recycle at a young age, so that later on conscious decisions about their surroundings, will become a habit. After all, there is no better way to motivate children than to encourage their competitive spirit with games.
+                            </p>
+
+                        </div>
+                        <div class="col-lg-4 col-md-6 text-center pt-2">
+                            <img src="../imgs/logos/logo_black1.png" alt="logo" class="img-fluid mx-auto d-block hovering-lite" style="max-width: 200px;">
+
+                        </div>
+                        <div class="col-lg-4 col-md-6 pt-2">
+                            <p class="text-light h4 pb-3">
+                                <i class="fa fa-user"></i>
+                                Grow Green, Partizanski Odredi n.59
+                            </p>
+                            <p class="text-light h4 pb-3">
+                                <i class="fa fa-user"></i>
+                                02-2771712
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid pt-3 bt-4" style="background: #1c7430;">
+            <div class="row">
+                <div class="col-4">
+                    <p class="text-white text-center m-2">
+                        © 2018 Grow Green, Skopje
+                    </p>
+                </div>
+                <div class="col-4 text-center">
+                    <i class="fa fa-facebook-square fa-3x text-white p-1"></i>
+                    <i class="fa fa-twitter-square fa-3x text-white p-1" aria-hidden="true"></i>
+                    <i class="fa fa-instagram fa-3x text-white p-1" aria-hidden="true"></i>
+                    <i class="fa fa-reddit-square fa-3x text-white p-1" aria-hidden="true"></i>
+                </div>
+                <div class="col-4 text-center">
+                    <ul class="list-inline m-2">
+                        <a href="#" class="list-inline-item text-light">Privacy Policy</a>|
+                        <a href="#" class="list-inline-item text-light">Sitemap</a>|
+                        <a href="#" class="list-inline-item text-light">Support</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

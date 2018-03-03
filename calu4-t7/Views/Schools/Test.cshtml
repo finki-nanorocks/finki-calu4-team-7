@@ -1,0 +1,108 @@
+﻿@model calu4_t7.ViewModel.ClassViewModel
+@{
+    ViewBag.Title = "Classes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var sum = 0;
+    foreach (var item in Model.List)
+    {
+        sum += item.FinalPoints;
+
+    }
+}
+
+
+<section id="school-title" class="mt-5 pb-4" style="padding-top: 70px;">
+    <div class="container text-center">
+        <p class="text-center h1 text-dark">@Model.School.Name (Points: @sum)</p>
+        <hr style="width: 40%;" />
+        <div class="row">
+            <div class="container">
+                <div id="chart"></div>
+            </div>
+        </div>
+        @*<div class="row mt-5">
+                <div class="col-lg-4 offset-lg-4 col-md-8 offset-md-2 col-sm-12">
+                    <h2>Select Class:</h2>
+                    <form method="" action="">
+                        <div class="form-group">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle btn-block btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Class
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">1vo</a>
+                                    <a class="dropdown-item" href="#">2ro</a>
+                                    <a class="dropdown-item" href="#">7mo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>*@
+
+    </div>
+</section>
+
+<section id="school-content" class="container" style="margin-top: 20px; padding-bottom: 50px; ">
+    <div class="row">
+        @foreach (var mClass in Model.List)
+        {
+            <div class="col-lg-3 col-md-6 pt-4 pb-2">
+                @*<a href="" style="text-decoration: none;" class="text-dark">*@
+                <div class="card">
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Text-->
+                        <h3 class="text-center">@mClass.SchoolClass.Name <br><span class="badge badge-dark" style="font-size: 12px;position: relative;top:-10px;">class</span></h3>
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-secondary">Bottles: <strong class="float-right">@mClass.Plastic</strong></li>
+                            <li class="list-group-item list-group-item-secondary">Cans: <strong class="float-right">@mClass.Glass</strong></li>
+                            <li class="list-group-item list-group-item-secondary">Batteries: <strong class="float-right">@mClass.Batery</strong></li>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                        <strong><span class="fa-1x">Monthly: @mClass.Points</span></strong>
+                    </div>
+                    <div class="card-footer text-center">
+                        <strong><span class="fa-1x">Total: @mClass.FinalPoints</span></strong>
+                    </div>
+                </div>
+                @*</a>*@
+            </div>
+        }
+    </div>
+    @foreach (var item in Model.ListChart){@(item.Plastic + ", ")}
+
+</section>
+<script>
+
+        var chart = c3.generate({
+            data: {
+                x: 'x',
+                columns: [
+                    ['x', '2017-10-01', '2017-11-01', '2017-12-01', '2018-01-01', '2018-02-01', '2018-03-01', '2018-04-01', '2018-05-01', '2018-06-01'],
+                    ['cans', @foreach (var item in Model.ListChart){@(item.Plastic + ", ")}],
+                    ['batteries', @foreach (var item in Model.ListChart){@(item.Battery + ", ")}],
+                    ['bottles', @foreach (var item in Model.ListChart){@(item.Cans + ", ")}]
+                ],
+                types: {
+                    cans: 'area-spline',
+                    batteries: 'area-spline',
+                    bottles: 'area-spline'
+                }
+            },
+            axis: {
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        format: '%Y-%m-%d',
+                        fit: true
+                    }
+                }
+            }
+        });
+
+</script>
